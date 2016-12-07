@@ -29,6 +29,9 @@
 // board
 int board[DIM_MAX][DIM_MAX];
 
+//move counter
+int move_counter = 0;
+
 // dimensions
 int d;
 
@@ -98,13 +101,14 @@ int main(int argc, string argv[])
         // check for win
         if (won())
         {
-            printf("ftw!\n");
+            printf("Congratulations! You win in %i moves!\n", move_counter);
             break;
         }
 
         // prompt for move
         printf("Tile to move: ");
         int tile = GetInt();
+        move_counter++;
         
         // quit if user inputs 0 (for testing)
         if (tile == 0)
